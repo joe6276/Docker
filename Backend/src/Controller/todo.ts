@@ -6,12 +6,13 @@ import {v4 as uid} from 'uuid'
 
 export async  function  AddTodo(req:ExtendedRequest, res:Response){
     try {
-        const {title,description}= req.body
+        const {title,description,image}= req.body
         const pool =await mssql.connect(sqlConfig)
          await pool.request()
         .input("id", uid())
         .input('title', title)
         .input('desc', description)
+        .input('img', image)
         .execute('insertTodo')
         res.status(201).json("Todo Added")
     } catch (error) {
@@ -23,7 +24,7 @@ export async  function  AddTodo(req:ExtendedRequest, res:Response){
 export async  function  getTodos(req:Request, res:Response){
     try {
         const pool =await mssql.connect(sqlConfig)
-        const todos = await (await pool.request().execute('getTodos')).recordset[0]
+        const todos = await (await pool.request().execute('getTodos')).recordset
         res.status(200).json(todos)
     } catch (error) {
         

@@ -1,0 +1,97 @@
+
+body{
+    background-color: #e7e7e7;
+}
+
+ul{  
+    list-style: none;
+    margin: 0;
+    padding: 0;  
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(17rem, 1fr));
+    gap: 1.5rem;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.post a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s ease;
+    padding: 1rem;
+}
+
+.post a:hover,
+.post a:active{
+    transform:scale(1.1);
+    background-color: #390281;
+    color:white
+}
+
+.post img{
+    width: 5rem;
+    height:  5rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.post h3{
+    margin :0.25rem 0;
+}
+
+.post time{
+    color:#666666;
+    margin: 0.25rem;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+.post:hover time,
+.post:active time{
+    color: white;
+}
+
+#form{
+    width: 90rem;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 25px;
+    border-radius: 12px;
+}
+
+#form-group{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+#form-class{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#form-class label{
+    font-size: 20px;
+}
+
+#form-class input{
+    width: 250px;
+    padding: 10px;
+}
+#form-class button{
+    background-color: #390281;
+    border-style: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+/*# sourceMappingURL=/styles.8986bff4.css.map */

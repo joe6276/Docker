@@ -19,12 +19,13 @@ const uuid_1 = require("uuid");
 function AddTodo(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { title, description } = req.body;
+            const { title, description, image } = req.body;
             const pool = yield mssql_1.default.connect(Config_1.sqlConfig);
             yield pool.request()
                 .input("id", (0, uuid_1.v4)())
                 .input('title', title)
                 .input('desc', description)
+                .input('img', image)
                 .execute('insertTodo');
             res.status(201).json("Todo Added");
         }
@@ -38,7 +39,7 @@ function getTodos(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const pool = yield mssql_1.default.connect(Config_1.sqlConfig);
-            const todos = yield (yield pool.request().execute('getTodos')).recordset[0];
+            const todos = yield (yield pool.request().execute('getTodos')).recordset;
             res.status(200).json(todos);
         }
         catch (error) {
