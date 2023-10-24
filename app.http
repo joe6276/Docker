@@ -1,0 +1,12 @@
+
+GET http://localhost:4000/todos
+
+
+###
+POST  http://localhost:4000/todos
+Content-Type: application/json
+
+{
+    "title":"Code",
+    "description":"Finished on APIS"
+}
